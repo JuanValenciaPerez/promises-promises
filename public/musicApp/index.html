@@ -18,36 +18,42 @@
 
 <body>
 <main class="main-wrapper" ng-controller="FirstCtrl">
-  <form class="form">
-    <h1>Artist Info</h1> Artist Name:
-    <input type="text" placeholder="Name" ng-model="name">
-     Artist Genre:
-    <input type="text" placeholder="genre" ng-model="genre">
-     Artist Score:
-    <input type="number" placeholder="0 - 100" ng-model="score">
-    <button type="submit" ng-click="addArtist()"> Add </button>
-  </form>
 
-  <section class="list-main-container">
-    <div class="list-container">
-      <h2 ng-show='reallyLike.length != 0' class="list-header">really Like</h2>
-      <div class='item' ng-repeat="artist in reallyLike">
+  <h1>Local Db Artist</h1>
+  <div ng-repeat="artist in localArtist">
+    {{artist}}
+  </div>
+
+  <!--<form class="form">-->
+    <!--<h1>Artist Info</h1> Artist Name:-->
+    <!--<input type="text" placeholder="Name" ng-model="name">-->
+     <!--Artist Genre:-->
+    <!--<input type="text" placeholder="genre" ng-model="genre">-->
+     <!--Artist Score:-->
+    <!--<input type="number" placeholder="0 - 100" ng-model="score">-->
+    <!--<button type="submit" ng-click="addArtist()"> Add </button>-->
+  <!--</form>-->
+
+  <!--<section class="list-main-container">-->
+    <!--<div class="list-container">-->
+      <!--<h2 ng-show='reallyLike.length != 0' class="list-header">really Like</h2>-->
+      <!--<div class='item' ng-repeat="artist in reallyLike">-->
+        <!--&lt;!&ndash;<h4>Name: {{artist.name}}</h4>&ndash;&gt;-->
+        <!--&lt;!&ndash;<h4> Genre: {{artist.genre}} </h4>&ndash;&gt;-->
+        <!--&lt;!&ndash;<h4> Score: {{artist.score}} </h4>&ndash;&gt;-->
+        <!--{{artist}}-->
+      <!--</div>-->
+    <!--</div>-->
+
+    <!--<div class="list-container">-->
+      <!--<h2 ng-show='kindOfLike.length != 0' class="list-header">kind of Like</h2>-->
+      <!--<div class='item' ng-repeat="artist in kindOfLike">-->
         <!--<h4>Name: {{artist.name}}</h4>-->
         <!--<h4> Genre: {{artist.genre}} </h4>-->
         <!--<h4> Score: {{artist.score}} </h4>-->
-        {{artist}}
-      </div>
-    </div>
-
-    <div class="list-container">
-      <h2 ng-show='kindOfLike.length != 0' class="list-header">kind of Like</h2>
-      <div class='item' ng-repeat="artist in kindOfLike">
-        <h4>Name: {{artist.name}}</h4>
-        <h4> Genre: {{artist.genre}} </h4>
-        <h4> Score: {{artist.score}} </h4>
-      </div>
-    </div>
-  </section>
+      <!--</div>-->
+    <!--</div>-->
+  <!--</section>-->
 </main>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>

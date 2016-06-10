@@ -1,20 +1,40 @@
 'use strict';
 
-myApp.controller('FirstCtrl', function ($scope, ourSvc) {
+myApp.controller('FirstCtrl', function ($scope,$q, musicSvc, movies) {
 
-    $scope.getAllPeople = function() {
-        $scope.people = ourSvc.getAllPeople().then(function(response){
-            console.log(response)
-        });
+    $scope.localArtist = [];
+
+    $scope.addArtist = function() {
+        musicSvc.getArtist(buildArtist());
+
 
     };
 
+movies.getMovies()
+    $scope.getLocalArtists = function(){
+        var promise =  musicSvc.getArtists();
+
+        // promise.then() receiver does not have access to the resolve method
+        promise.then(function(response){
+            console.log(response);
+            $scope.localArtist = response;
+        },function(){
+            console.log('error');
+        },
+        function(status) {
+            console.log(status); // You can call the statu smethod as many times as you want
+        })
+
+    };
+
+    $scope.getLocalArtists();
 
     function buildArtist() {
         return {
             name: $scope.name,
             genre: $scope.genre,
-            score: $scope.score
+            score: $scope.score,
+            id: Math.random() * 5000
         }
     }
 
